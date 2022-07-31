@@ -1,11 +1,13 @@
 package hr.hrsak;
 
-public class TransparentShape implements Shape{
+import java.util.function.Supplier;
+
+public class TransparentShape<T extends Shape> implements Shape{
     private Shape shape;
     private int transparency;
 
-    public TransparentShape(Shape shape, int transparency) {
-        this.shape = shape;
+    public TransparentShape(Supplier<? extends Shape> ctor, int transparency) {
+        this.shape = ctor.get();
         this.transparency = transparency;
     }
 

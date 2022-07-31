@@ -1,14 +1,18 @@
 package hr.hrsak;
 
-public class ColoredShape implements Shape{
+import java.util.function.Supplier;
+
+public class ColoredShape<T extends Shape> implements Shape{
 
     private Shape shape;
     private String color;
 
-    public ColoredShape(Shape shape, String color) {
-        this.shape = shape;
+    public ColoredShape(Supplier<? extends T> ctor, String color)
+    {
         this.color = color;
+        shape = ctor.get();
     }
+
 
     @Override
     public String info() {
