@@ -15,7 +15,7 @@ public class Demo {
         root.add(new IncreaseDefenseModifier(goblin));
         root.handle();
         System.out.println(goblin);
-        //rename
+
 
 
     }
